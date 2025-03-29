@@ -14,6 +14,6 @@ class Food(Turtle):
         self.new_location()
 
     def new_location(self):
-        x_position = random.randint(-280, 280)
-        y_position = random.randint(-280, 280)
+        x_position = random.randint(-270, 270)
+        y_position = random.randint(-270, 270)
         self.setpos(x_position, y_position)
