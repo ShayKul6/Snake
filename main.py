@@ -15,10 +15,10 @@ food = Food()  # creates a circle 'food'
 scoreboard = Scoreboard()  # creates a scoreboard object
 
 screen.listen()
-screen.onkey(snake.up, "Up")
-screen.onkey(snake.down, "Down")
-screen.onkey(snake.turn_left, "Left")
-screen.onkey(snake.turn_right, "Right")
+screen.onkey(snake.up, "w")
+screen.onkey(snake.down, "s")
+screen.onkey(snake.turn_left, "a")
+screen.onkey(snake.turn_right, "d")
 
 game_on = True
 while game_on:
@@ -33,8 +33,8 @@ while game_on:
         scoreboard.increase_score()
 
     # Detect collision with wall
-    if (snake.head.xcor() > 280 or snake.head.ycor() > 280
-            or snake.head.xcor() < -280 or snake.head.ycor() < -280):
+    if (snake.head.xcor() > 280 or snake.head.ycor() > 260
+            or snake.head.xcor() < -290 or snake.head.ycor() < -280):
         game_on = False
         scoreboard.end_game()
 
