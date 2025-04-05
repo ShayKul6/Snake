@@ -1,3 +1,4 @@
+import time
 from turtle import Turtle
 
 STARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
@@ -29,7 +30,7 @@ class Snake:
         self.segments.append(new_segment)
 
     def extend(self):
-        """Adds a new segment to extend the snake"""
+        """ Adds a new segment to extend the snake """
         self.add_segment(self.segments[-1].position())
 
     def move(self):
@@ -38,6 +39,15 @@ class Snake:
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].setpos(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
+
+    def reset_snake(self):
+        """ Initializing the snake body """
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+        time.sleep(2)
 
     def up(self):
         if self.head.heading() != DOWN:
